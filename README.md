@@ -46,18 +46,18 @@ The flight controller's PWM command signal and the high-frequency PWM switching 
 
 ## 5. Target Hardware and Technology
 
-| Component | Description |
-|---|---|
-| Motor | A2212/13T 1000KV BLDC motor |
-| Embedded controller | STM32 microcontroller |
-| Intended command source | PWM-based UAV flight controller / A usable PWM communication interface |
-| Development command interface | PC-based communication interface |
-| Power stage | Three-phase MOSFET inverter |
-| Gate-driver arrangement | IR2104-based gate drivers |
-| Commutation method | Six-step trapezoidal commutation |
-| Rotor-position detection | Sensorless back-EMF detection |
-| Hardware design software | KiCad |
-| Firmware development environment | STM32 development tools |
+| Component                        | Description                                                            |
+| -------------------------------- | ---------------------------------------------------------------------- |
+| Motor                            | A2212/13T 1000KV BLDC motor                                            |
+| Embedded controller              | STM32 microcontroller                                                  |
+| Intended command source          | PWM-based UAV flight controller / A usable PWM communication interface |
+| Development command interface    | PC-based communication interface                                       |
+| Power stage                      | Three-phase MOSFET inverter                                            |
+| Gate-driver arrangement          | IR2104-based gate drivers                                              |
+| Commutation method               | Six-step trapezoidal commutation                                       |
+| Rotor-position detection         | Sensorless back-EMF detection                                          |
+| Hardware design software         | KiCad                                                                  |
+| Firmware development environment | STM32 development tools                                                |
 
 Component selections and implementation details are subject to verification during development and testing.
 
@@ -84,7 +84,6 @@ Development will begin with a prototype assembled from individual circuit sectio
 
 The proposed motor-control strategy uses six-step trapezoidal commutation. Field-oriented control (FOC) and sinusoidal commutation are outside the implementation scope of this project.
 
-
 ## 7. Development Methodology
 
 The project follows a subsystem-oriented development approach. Each major hardware and firmware section will be designed, documented and tested before integration into the complete ESC.
@@ -106,94 +105,6 @@ The development stages are:
 The repository is organised to separate the complete system design from its individual subsystems, firmware and testing documentation.
 
 Each subsystem has its own documentation and supporting design files. Where applicable, its directory also contains circuit schematics, firmware modules, calculations and test records.
-
-```text
-bidirectional-bldc-esc/
-│
-├── README.md
-├── LICENSE
-├── .gitignore
-├── kicad.sh
-│
-├── hardware/
-│   ├── system/
-│   │   ├── system.kicad_pro
-│   │   ├── system.kicad_sch
-│   │   └── system.kicad_pcb
-│   │
-│   └── libraries/
-│       ├── symbols/
-│       └── footprints/
-│
-├── systems/
-│   │
-│   ├── power/
-│   │   ├── README.md
-│   │   ├── hardware/
-│   │   ├── calculations/
-│   │   └── tests/
-│   │
-│   ├── gate-driver/
-│   │   ├── README.md
-│   │   ├── hardware/
-│   │   ├── calculations/
-│   │   └── tests/
-│   │
-│   ├── three-phase-inverter/
-│   │   ├── README.md
-│   │   ├── hardware/
-│   │   ├── calculations/
-│   │   └── tests/
-│   │
-│   ├── microcontroller/
-│   │   ├── README.md
-│   │   ├── hardware/
-│   │   ├── firmware/
-│   │   └── tests/
-│   │
-│   ├── communication/
-│   │   ├── README.md
-│   │   ├── hardware/
-│   │   ├── firmware/
-│   │   ├── protocol/
-│   │   └── tests/
-│   │
-│   ├── rotor-position/
-│   │   ├── README.md
-│   │   ├── hardware/
-│   │   ├── firmware/
-│   │   ├── calculations/
-│   │   └── tests/
-│   │
-│   ├── motor-control/
-│   │   ├── README.md
-│   │   ├── firmware/
-│   │   └── tests/
-│   │
-│   └── protection/
-│       ├── README.md
-│       ├── hardware/
-│       ├── firmware/
-│       └── tests/
-│
-├── firmware/
-│   ├── README.md
-│   ├── application/
-│   ├── common/
-│   └── build/
-│
-├── testing/
-│   ├── README.md
-│   ├── test-plans/
-│   ├── test-results/
-│   └── measurements/
-│
-└── documentation/
-    ├── architecture/
-    ├── design-decisions/
-    ├── datasheets/
-    └── images/
-```
 
 ## 9. Subsystem Documentation
 
